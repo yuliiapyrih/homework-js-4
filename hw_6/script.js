@@ -110,7 +110,40 @@ console.log(usersWithId);
 
 // -- наисать функцию калькулятора с 2мя числами и колбеком
 // -- наисать функцию калькулятора с 3мя числами и колбеком
+function calculatorWithTwoNumbers(x, y, operator) {
+    if (operator==='+') {
+        return x+y;
+    }
+    if (operator==='*') {
+        return x*y;
+    }
+    if (operator==='-') {
+        return x-y;
+    }
+    if (operator==='/') {
+        return x/y;
+    }
+}
 
+function calculatorWithThreeNumbers(x,y,z,operator1,operator2) {
+    let result=0;
+    if (operator1==='*') {
+        result=x*y;
+        return calculatorWithTwoNumbers(result,z,operator2);
+    } 
+    if (operator1==='/') {
+        result=x*y;
+        return calculatorWithTwoNumbers(result,z,operator2);
+    } 
+    if (operator2==='*') {
+        result=y*z;
+        return calculatorWithTwoNumbers(x,result,operator1);
+    } 
+    if (operator2==='/') {
+        result=y*z;
+        return calculatorWithTwoNumbers(x,result,operator1);
+    } 
+}
 // =============================================
 // =============================================
 // =============КЛАССНАЯ РАБОТА=================
@@ -405,3 +438,5 @@ function findMaxMin(arr,key) {
 // Answer: MinIndex = 0, MaxIndex = 0.
 // 2. Key = 4
 // Answer: MinIndex = 3, MaxIndex = 6.
+
+
